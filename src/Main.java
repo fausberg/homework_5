@@ -13,9 +13,9 @@ public class Main {
 //        Task_7();
 //        Taskl_1();
 //        Taskl_2();
-//        Taskl_3();
+        Taskl_3();
 //        Taskl_4();
-        Taskl_5();
+//        Taskl_5();
 //        Taskl_6();
     }
 
@@ -280,9 +280,10 @@ public class Main {
 
     public static void Taskl_3() {
         Random random = new Random();
-        int[][] arr = new int[3][3];
-        int[][] arr_1 = new int[3][3];
-        int[][] arr_2 = new int[3][3];
+        int[][] arr = new int[2][4];
+        int[][] arr_1 = new int[4][2];
+        int n = arr.length;
+        int[][] arr_2 = new int[n][n];
         for (int i = 0; i < arr.length; i++) {
             for (int g = 0; g < arr[i].length; g++) {
                 arr[i][g] = random.nextInt(10);
@@ -305,18 +306,24 @@ public class Main {
         int p_i = 0;
         int p_g = 0;
         int p = 0;
-        while (p_i < arr_2.length) {
-            for (int i = 0; i < arr_2.length; i++) {
-                for (int g = 0; g < arr_2[i].length; g++) {
+        while (p_i < arr.length) {
+            if(arr[0].length != arr_1.length){
+                break;
+            }
+            for (int i = 0; i < arr.length; i++) {
+                for (int g = 0; g < arr[i].length; g++) {
                     arr_2[p_i][p_g] += arr[p][g] * arr_1[g][i];
                 }
                 p_g++;
-                if (p_g == arr_2[i].length) {
+                if (p_g == arr.length) {
                     p_g = 0;
                 }
             }
             p_i++;
             p++;
+            if(p == arr.length){
+                p = 0;
+            }
         }
         for (int i = 0; i < arr_2.length; i++) {
             for (int g = 0; g < arr_2[i].length; g++) {
