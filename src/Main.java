@@ -13,10 +13,11 @@ public class Main {
 //        Task_7();
 //        Taskl_1();
 //        Taskl_2();
-        Taskl_3();
+//        Taskl_3();
 //        Taskl_4();
 //        Taskl_5();
 //        Taskl_6();
+        Task_shax();
     }
 
     public static void Task_1() {
@@ -394,28 +395,52 @@ public class Main {
         }
     }
 
-
-    public static void Taskl_6() {
-        Random random = new Random();
-        int[][] arr = new int[3][3];
-        for (int i = 0; i < arr.length; i++) {
-            for (int g = 0; g < arr[i].length; g++) {
-                arr[i][g] = random.nextInt(10);
-                System.out.print(arr[i][g] + " ");
+    public static void Task_shax() {
+        int n = 8;
+        int p_i = 3;
+        int p_j = 3;
+        String[][] arr_s = new String[n][n];
+        for (int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                arr_s[i][j] = "0";
+            }
+        }
+        arr_s[3][3] = "S";
+        int k = 0;
+        int[][] arr = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                arr[i][j] = k;
+                k++;
+                System.out.print(arr[i][j] + " ");
             }
             System.out.println();
         }
-        System.out.println();
-        for (int i = 0; i < arr.length; i++) {
-            for (int g = 0; g < arr[i].length; g++) {
-                Arrays.sort(arr[i]);
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (j < p_j) {
+                    if (arr[p_i + 1][p_j - 2] == arr[i][j] || arr[p_i - 1][p_j - 2] == arr[i][j] || arr[p_i + 2][p_j - 1] == arr[i][j] || arr[p_i - 2][p_j - 1] == arr[i][j]) {
+                        System.out.println(i + " " + j);
+                        arr_s[i][j] = "X";
+                    }
+                } else {
+                    if (arr[p_i + 1][p_j + 2] == arr[i][j] || arr[p_i - 1][p_j + 2] == arr[i][j] || arr[p_i + 2][p_j + 1] == arr[i][j] || arr[p_i - 2][p_j + 1] == arr[i][j]) {
+                        System.out.println(i + " " + j);
+                        arr_s[i][j] = "X";
+                    }
+                }
             }
+
         }
-        for (int i = 0; i < arr.length; i++) {
-            for (int g = 0; g < arr[i].length; g++) {
-                System.out.print(arr[i][g] + " ");
+
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(arr_s[i][j] + " ");
             }
             System.out.println();
         }
     }
+
 }
